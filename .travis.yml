@@ -25,5 +25,4 @@ jobs:
         - rvm use 2.2.2
         - ruby --version
         - bundler --version
-        - virtualenv env
         - make package

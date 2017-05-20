@@ -20,8 +20,8 @@ jobs:
       script:
         - flake8
         - pydocstyle pact
-    - stage: test
     - stage: build-ruby
+      python: []
       rvm: "2.2"
       script: scripts/build.sh
     - stage: sdist

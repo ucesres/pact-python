@@ -11,19 +11,13 @@ sudo: false
 install: pip install -r requirements_dev.txt
 
 script:
+  - flake8
+  - pydocstyle pact
   - tox --develop
 
 jobs:
   include:
-    - stage: lint
+    - stage: package
       python: "2.7"
-      script:
-        - flake8
-        - pydocstyle pact
-    - stage: build-ruby
-      python: []
       rvm: "2.2"
-      script: scripts/build.sh
-    - stage: sdist
-      python: "2.7"
-      script: python setup.py sdist
+      script: make package

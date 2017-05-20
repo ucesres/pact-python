@@ -20,4 +20,7 @@ jobs:
     - stage: package
       python: "2.7"
       rvm: "2.2"
-      script: make package
+      script:
+        - ruby --version
+        - bundler --version
+        - make package

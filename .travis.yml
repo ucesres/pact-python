@@ -21,8 +21,9 @@ jobs:
       language: ruby
       python: "2.7"
       rvm: "2.2"
+      install: echo "Skipping install"
       script:
         - ruby --version
         - bundler --version
         - virtualenv env
-        - source env/bin/activate && make package
+        - source env/bin/activate && which python && pip install -r requirements_dev.txt && make package

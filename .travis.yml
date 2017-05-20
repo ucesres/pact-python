@@ -24,4 +24,5 @@ jobs:
       script:
         - ruby --version
         - bundler --version
-        - make package
+        - virtualenv env
+        - source env/bin/activate && make package

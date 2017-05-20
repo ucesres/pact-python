@@ -18,6 +18,7 @@ script:
 jobs:
   include:
     - stage: package
+      language: ruby
       python: "2.7"
       rvm: "2.2"
       script:

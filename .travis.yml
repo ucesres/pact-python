@@ -27,3 +27,21 @@ jobs:
         - ruby --version
         - bundler --version
         - make package
+
+deploy:
+  - provider: pypi
+    username: mkbalvanz
+    password:
+      secure: fSwbdnsnE/yiXhQ5ZmKOEEseF9gJZazywryTVbTwS/Z+qzT9+LtWvH0T8Jx9str5MFSRFHG5mqzwbyeoWYptU+DFGdfyKV29v3XUmmSFThHgTlNVKwv4KEhZ+3Y1Xzgs/3f9HcLOdMdOwXrNdjiBSCsAlaLfLO1Xtyu8cr9BenaCIVfyauCa29cJevJfURu5m5tzP8llmwuo80gtpeEMtFzUQgBhmeh37HvMP2Qu8eglXKmf5Ici/bRXxGmeB1aW86qepxVaQJf1XPIjjmP1ys3cWzDiCmXt+VEFTwlUMJv9tkjP6iMvSrGhhzV5AQJbZf+e5cvBGAMmkyDiiYoHSzFj5P21obdMw5xxEPAyurlCFv0logHa1Vtq3eV4+2glamh+iPozD+qzcZAq10ak+epP2IcVhRsOUjFFyifGMK4m8U9PWlZXKU2nKoeX2aFpxnzE3cB0HtjgKgOuZ8zHotwJSDcRY7BJ2R1PrY6yB6uwmO3d8fS2UhnOxkySUZbgCT9hp5PoojiQe4M9Df7vudjexyu7ezRpeAW2UHAA+RMqHrmrCfudCwcRMewky1vfd10VdkVSNsYKdSieo9qdhsWHicJjyH9woFhtbNzM2Hkg3pkBiACQQqJk/JnzKitvW6LPNSQ9xcIvgYybskyGtJM3wuZa9e8SWvWRiSxaByA=
+    on:
+      repo: pact-foundation/pact-python
+      tags: true
+    server: https://testpypi.python.org/pypi
+  - provider: releases
+    api_key:
+      secure: FQDAZNYQ0w59V8XIhc8qalp/iWywdQS/pNVfcsHD5NaiADY5d7IUdoiO3imoPkuAgiYhyR4ZpgqVVcGGKSY6iMkxh8cDO9lmmnm3lHj06gO9MHB8chf4I+U1Hkj0+PNhYPpLhpCc0jynszk96dCusaaIIPUO2tcSVKO79jVEBrL8P+jMSLsAdVGahgHbHP5ClfCfbzi2oFcKq8MDLiSKxg/1XHpb5tzOC/tG0X/Jnw3wULOr5ne8ESqnQP7XwZ4//WUphA9jGG//T7vYHa723r1mil7ehX2J5vpMdDHuKnl1mUJhwprELc6ZyzAXUnZsU8tYkaBlhMVmEwd+F444e6y44DB7sIuF6bsHS71fuWA60xRZ5wuJr6Vg0MDn1Tcaw8yzg65XQoWMLmYuaRieCSTppmqDLByC0In47zDjOvhsNX0Xonjy8D4xNsndT/TsxtFnz6SNEEFwf1PAvwoKZ9rbHCsP4ZsK+NkQ0tzCWA/8FJ0bnFo+yEiqlmnP2bW2jCfDjT4F5fnSYi4l1wY4bEbXUSYmuc2wSrQcsVZDG143nwtYg3AwwKPpMsQTlU1fYxndlQ7XNbTV8/6bPxcA5p1MGFqbxTOAzfboKSTEesuKZMGzs7wGAsF8x6F9ZnIaLCgMMyM3mne/yrfhVIgcAdINMeX+DZa6VEZFtbPv4pM=
+    file: dist/pact-python-*.tar.gz
+    file_glob: true
+    on:
+      repo: pact-foundation/pact-python
+      tags: true

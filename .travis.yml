@@ -19,6 +19,8 @@ script:
   - flake8
   - pydocstyle pact
   - tox --develop
+  - if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]]; then rvm install 2.2.2; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]]; then rvm use 2.2.2; fi
   - ruby --version
   - bundler --version
   - if [[ $TRAVIS_PYTHON_VERSION == "2.7" ]]; then make package; fi

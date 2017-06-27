@@ -153,3 +153,17 @@ class SyntaxErrors(BaseTestCase):
 
         self.assertEqual(
             e.exception.message, 'two() takes exactly 2 arguments (1 given)')
+
+
+class StatelessService(BaseTestCase):
+    def test_stateless_service(self):
+        (pact
+         .given('a stateless service exists')
+         .upon_receiving('a request for a resource')
+         .with_request('get', '/resources/1')
+         .will_respond_with(200, body='resource'))
+
+        with pact:
+            result = requests.get('http://localhost:1234/resources/1')
+
+        self.assertEqual(result.text, 'resource')

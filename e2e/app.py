@@ -52,6 +52,11 @@ def set_active():
     return Response(status=200)
 
 
+@app.route('/resources/<int:id_>', methods=['GET'])
+def resources(id_):
+    return 'resource'
+
+
 @app.route('/', defaults={'path': ''}, methods=HTTP_METHODS)
 @app.route('/<path:path>', methods=HTTP_METHODS)
 def catch_all(path):
